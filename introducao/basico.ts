@@ -1,2 +1,2 @@
-const a: string = 'Teste TS!'
-console.log(a)
+const a: string = 'BLa';
+console.log(a);
