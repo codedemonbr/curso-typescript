@@ -7,8 +7,28 @@
         <title>TypeScript</title>
     </head>
     <body>
-        <script src="dist/introducao/basico.js"></script>
-        <script src="dist/tipos/tipos.js"></script>
-        <script src="dist/compilador/compilador.js"></script>
+        <script src="node_modules/systemjs/dist/system.js"></script>
+        <!-- <script src="dist/introducao/basico.js"></script> -->
+        <!-- <script src="dist/tipos/tipos.js"></script> -->
+        <!-- <script src="dist/compilador/compilador.js"></script> -->
+        <!-- <script src="dist/ecmascript/ecmascript.js"></script> -->
+        <!-- <script src="dist/classes/classes.js"></script> -->
+        <!-- <script src="dist/classes/desafio.js"></script> -->
+        <!-- <script src="dist/namespaces/geometriaCirc.js"></script>
+        <script src="dist/namespaces/geometriaRect.js"></script>
+        <script src="dist/namespaces/namespaces.js"></script> -->
+        <!-- <script src="dist/modulos/modulos.js"></script> -->
+        <script>
+            SystemJS.config({
+                baseUrl: 'dist/modulos',
+                packages: {
+                    'dist/modulos': {
+                        defaultJSExtension: true,
+                    },
+                },
+            });
+
+            SystemJS.import('./dist/modulos/modulos.js');
+        </script>
     </body>
 </html>

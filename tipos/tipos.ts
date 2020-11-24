@@ -123,10 +123,10 @@ console.log(funcionario.supervisores);
 console.log(funcionario.baterPonto(9));
 
 //Union types
-let nota: number | string = null;
-console.log(`Minha nota é ${nota}`);
-nota = '10';
-console.log(`Minha nota é ${nota}`);
+// // let nota: number | string = null;
+// console.log(`Minha nota é ${nota}`);
+// nota = '10';
+// console.log(`Minha nota é ${nota}`);
 // nota = true
 
 // checando tipos
