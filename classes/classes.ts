@@ -1,156 +1,156 @@
-// class Data {
-//     //publico por padrao
-//     dia: number;
-//     public mes: number;
-//     ano: number;
+class Data {
+    //publico por padrao
+    dia: number;
+    public mes: number;
+    ano: number;
 
-//     constructor(dia: number = 1, mes: number = 1, ano: number = 1970) {
-//         this.dia = dia;
-//         this.mes = mes;
-//         this.ano = ano;
-//     }
-// }
+    constructor(dia: number = 1, mes: number = 1, ano: number = 1970) {
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+    }
+}
 
-// const aniversario = new Data(3, 11, 1991);
-// aniversario.dia = 4;
-// console.log(aniversario.dia);
-// console.log(aniversario);
+const aniversario = new Data(3, 11, 1991);
+aniversario.dia = 4;
+console.log(aniversario.dia);
+console.log(aniversario);
 
-// const casamento = new Data(); // prettier colocar os parenteses
-// casamento.ano = 2017;
-// console.log(casamento);
+const casamento = new Data(); // prettier colocar os parenteses
+casamento.ano = 2017;
+console.log(casamento);
 
-// class DataEsperta {
-//     constructor(
-//         public dia: number = 1,
-//         public mes: number = 1,
-//         public ano: number = 1970
-//     ) {}
-// }
+class DataEsperta {
+    constructor(
+        public dia: number = 1,
+        public mes: number = 1,
+        public ano: number = 1970
+    ) {}
+}
 
-// const aniversarioEsperto = new DataEsperta(3, 11, 1991);
-// aniversarioEsperto.dia = 4;
-// console.log(aniversarioEsperto.dia);
-// console.log(aniversarioEsperto);
+const aniversarioEsperto = new DataEsperta(3, 11, 1991);
+aniversarioEsperto.dia = 4;
+console.log(aniversarioEsperto.dia);
+console.log(aniversarioEsperto);
 
-// const casamentoEsperto = new DataEsperta();
-// casamentoEsperto.ano = 2017;
-// console.log(casamentoEsperto);
+const casamentoEsperto = new DataEsperta();
+casamentoEsperto.ano = 2017;
+console.log(casamentoEsperto);
 
-// // Desafio Classe Produto
-// // Atributos: nome, preco e desconto
-// // Criar o construtor
-// // Obs 1.: Desconto é opcional (valor padrão 0)
-// // Obs 2.: Criar dois produtos: passando dois e três params
+// Desafio Classe Produto
+// Atributos: nome, preco e desconto
+// Criar o construtor
+// Obs 1.: Desconto é opcional (valor padrão 0)
+// Obs 2.: Criar dois produtos: passando dois e três params
 
-// class Produto {
-//     constructor(
-//         private nome: string,
-//         private preco: number,
-//         private desconto: number = 0
-//     ) {}
+class Produto {
+    constructor(
+        private nome: string,
+        private preco: number,
+        private desconto: number = 0
+    ) {}
 
-//     setDesconto(desconto: number) {
-//         this.desconto = desconto;
-//     }
-//     precoComDesconto(): number {
-//         return this.preco * (1 - this.desconto);
-//     }
+    setDesconto(desconto: number) {
+        this.desconto = desconto;
+    }
+    precoComDesconto(): number {
+        return this.preco * (1 - this.desconto);
+    }
 
-//     public resumo(): string {
-//         return `
-//             Produto: ${this.nome}
-//             Preço Bruto: ${this.preco}
-//             Preço com desconto: ${this.precoComDesconto()}
-//             Desconto: ${this.desconto * 100}%
-//         `;
-//     }
-// }
+    public resumo(): string {
+        return `
+            Produto: ${this.nome}
+            Preço Bruto: ${this.preco}
+            Preço com desconto: ${this.precoComDesconto()}
+            Desconto: ${this.desconto * 100}%
+        `;
+    }
+}
 
-// const produto1 = new Produto('Livro de historinhas', 10);
-// produto1.setDesconto(0.05);
-// console.log(produto1.resumo());
+const produto1 = new Produto('Livro de historinhas', 10);
+produto1.setDesconto(0.05);
+console.log(produto1.resumo());
 
-// const produto2 = new Produto('Celular', 500, 0.12);
-// console.log(produto2.resumo());
+const produto2 = new Produto('Celular', 500, 0.12);
+console.log(produto2.resumo());
 
-// class Carro {
-//     private velocidadeAtual: number = 0;
+class Carro {
+    private velocidadeAtual: number = 0;
 
-//     constructor(
-//         public marca: string,
-//         public modelo: string,
-//         private velocidadeMaxima: number = 200
-//     ) {}
+    constructor(
+        public marca: string,
+        public modelo: string,
+        private velocidadeMaxima: number = 200
+    ) {}
 
-//     protected alterarVelocidade(delta: number) {
-//         const novaVelocidade = this.velocidadeAtual + delta;
-//         const velocidadeValida =
-//             novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
+    protected alterarVelocidade(delta: number) {
+        const novaVelocidade = this.velocidadeAtual + delta;
+        const velocidadeValida =
+            novaVelocidade >= 0 && novaVelocidade <= this.velocidadeMaxima;
 
-//         if (velocidadeValida) {
-//             this.velocidadeAtual = novaVelocidade;
-//         } else {
-//             this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0;
-//         }
+        if (velocidadeValida) {
+            this.velocidadeAtual = novaVelocidade;
+        } else {
+            this.velocidadeAtual = delta > 0 ? this.velocidadeMaxima : 0;
+        }
 
-//         return this.velocidadeAtual;
-//     }
+        return this.velocidadeAtual;
+    }
 
-//     public acelerar(): number {
-//         return this.alterarVelocidade(5);
-//     }
+    public acelerar(): number {
+        return this.alterarVelocidade(5);
+    }
 
-//     public frear(): number {
-//         return this.alterarVelocidade(-5);
-//     }
-// }
+    public frear(): number {
+        return this.alterarVelocidade(-5);
+    }
+}
 
-// const carro1 = new Carro('Ford', 'Ka', 185);
+const carro1 = new Carro('Ford', 'Ka', 185);
 
-// Array(50)
-//     .fill(0)
-//     .forEach(() => carro1.acelerar());
-// console.log(carro1.acelerar());
+Array(50)
+    .fill(0)
+    .forEach(() => carro1.acelerar());
+console.log(carro1.acelerar());
 
-// Array(40)
-//     .fill(0)
-//     .forEach(() => carro1.frear());
-// console.log(carro1.frear());
+Array(40)
+    .fill(0)
+    .forEach(() => carro1.frear());
+console.log(carro1.frear());
 
-// //simular "erros"
-// // carro1.velocidadeAtual = 300;
-// // console.log('Atual -> ' + carro1.velocidadeAtual);
+//simular "erros"
+// carro1.velocidadeAtual = 300;
+// console.log('Atual -> ' + carro1.velocidadeAtual);
 
-// // carro1.velocidadeMaxima = 500;
-// // console.log('maxima -> ' + carro1.velocidadeMaxima);
+// carro1.velocidadeMaxima = 500;
+// console.log('maxima -> ' + carro1.velocidadeMaxima);
 
-// // carro1.alterarVelocidade(150);
-// // console.log('atual -> ' + carro1.velocidadeAtual);
+// carro1.alterarVelocidade(150);
+// console.log('atual -> ' + carro1.velocidadeAtual);
 
-// class Ferrari extends Carro {
-//     constructor(modelo: string, velocidadeMaxima: number) {
-//         super('Ferrari', modelo, velocidadeMaxima);
-//     }
+class Ferrari extends Carro {
+    constructor(modelo: string, velocidadeMaxima: number) {
+        super('Ferrari', modelo, velocidadeMaxima);
+    }
 
-//     public acelerar(): number {
-//         return this.alterarVelocidade(20);
-//     }
+    public acelerar(): number {
+        return this.alterarVelocidade(20);
+    }
 
-//     public frear(): number {
-//         return this.alterarVelocidade(-15);
-//     }
-// }
+    public frear(): number {
+        return this.alterarVelocidade(-15);
+    }
+}
 
-// const f40 = new Ferrari('F40', 324);
-// console.log(`${f40.marca}  ${f40.modelo}`);
-// console.log(f40.acelerar());
-// console.log(f40.acelerar());
-// console.log(f40.acelerar());
-// console.log(f40.acelerar());
-// console.log(f40.frear());
-// console.log(f40.frear());
-// console.log(f40.frear());
+const f40 = new Ferrari('F40', 324);
+console.log(`${f40.marca}  ${f40.modelo}`);
+console.log(f40.acelerar());
+console.log(f40.acelerar());
+console.log(f40.acelerar());
+console.log(f40.acelerar());
+console.log(f40.frear());
+console.log(f40.frear());
+console.log(f40.frear());
 
 // Getters &  Setters
 class Pessoa {
