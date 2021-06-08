@@ -62,3 +62,57 @@ function imprimivel(construtor: Function) {
 // (<any>new Eletrodomestico()).imprimir();
 const eletro = new Eletrodomestico();
 eletro.imprimir && eletro.imprimir();
+
+class ContaCorrente {
+    private saldo: number;
+    private name: string;
+
+    constructor(saldo: number, name: string = "") {
+        this.saldo = saldo;
+        this.name = name;
+    }
+
+    @congelar
+    sacar(valor: number) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @congelar
+    getSaldo() {
+        return this.saldo;
+    }
+
+    getName() {
+        return this.name;
+    }
+}
+
+const cc = new ContaCorrente(10245.67, "John");
+console.log(cc.getSaldo());
+console.log(cc.getName());
+
+cc.sacar(5000);
+console.log(cc.getSaldo());
+
+// cc.getSaldo = function () {
+//     return this["saldo"] + 7000;
+// };
+
+console.log(cc.getSaldo());
+
+//Inspirado no Object.freeze()
+
+function congelar(
+    alvo: any,
+    nomeMetodo: string,
+    descritor: PropertyDescriptor
+) {
+    console.log(alvo);
+    console.log(nomeMetodo);
+    descritor.writable = false;
+}
