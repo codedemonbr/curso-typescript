@@ -1,11 +1,3 @@
-// @logarClasse
-// @logarClasseSe(false)
-@decorator({ a: "Teste" })
-class Eletrodomestico {
-    constructor() {
-        console.log("novo...");
-    }
-}
 /**
  * Decorator só é chamado quando a classe é carregada
  */
@@ -27,3 +19,31 @@ function decorator(obj: { a: string; b?: number }) {
         console.log(obj.a + " " + obj.b);
     };
 }
+
+// @logarClasse
+// @logarClasseSe(true)
+// @decorator({ a: "Teste" })
+@logarObjeto
+class Eletrodomestico {
+    constructor() {
+        console.log("novo...");
+    }
+}
+
+type Construtor = { new (...args: any[]): {} };
+
+function logarObjeto(construtor: Construtor) {
+    console.log("Carregando...");
+    return class extends construtor {
+        constructor(...args: any[]) {
+            console.log("Antes...");
+            super(...args);
+            console.log("Depois...");
+        }
+    };
+}
+
+new Eletrodomestico();
+new Eletrodomestico();
+new Eletrodomestico();
+new Eletrodomestico();
