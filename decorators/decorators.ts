@@ -64,6 +64,7 @@ const eletro = new Eletrodomestico();
 eletro.imprimir && eletro.imprimir();
 
 class ContaCorrente {
+    @naoNegativo
     private saldo: number;
     private name: string;
 
@@ -115,4 +116,20 @@ function congelar(
     console.log(alvo);
     console.log(nomeMetodo);
     descritor.writable = false;
+}
+
+function naoNegativo(alvo: any, nomePropriedade: string) {
+    delete alvo[nomePropriedade];
+    Object.defineProperty(alvo, nomePropriedade, {
+        get: function (): any {
+            return alvo["_" + nomePropriedade];
+        },
+        set: function (valor: any): void {
+            if (valor < 0) {
+                throw new Error("Saldo Inválido");
+            } else {
+                alvo["_" + nomePropriedade] = valor;
+            }
+        },
+    });
 }
